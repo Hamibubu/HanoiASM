@@ -31,5 +31,5 @@ This project implements a recursive algorithm to solve the Towers of Hanoi probl
 <h2 align="center">Credits</h2>
 
 <br>
-<strong allign="center">Abraham de León Gutiérrez & Luis Santiago Zamora Vargas</strong>
+<strong align="center">Abraham de León Gutiérrez & Luis Santiago Zamora Vargas</strong>
 <br>
