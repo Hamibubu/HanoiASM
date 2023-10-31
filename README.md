@@ -28,6 +28,7 @@ This project implements a recursive algorithm to solve the Towers of Hanoi probl
    git clone https://github.com/your-username/towers-of-hanoi-riscv.git
    cd towers-of-hanoi-riscv
 
-<h2 align="center">Programmed by:</h2>
+<h2 align="center">Credits</h2>
 
-<strong>Abraham de León Gutiérrez & Luis Santiago Zamora Vargas</strong>
+<br>
+<strong allign="center">Abraham de León Gutiérrez & Luis Santiago Zamora Vargas</strong>
