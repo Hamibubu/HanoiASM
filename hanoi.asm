@@ -2,7 +2,7 @@
 .text
 	# Inicializar el numero de discos
 	# s0 es el numero de discos
-	addi s0, zero, 10
+	addi s0, zero, 3
 	# Apuntador al inicio de la RAM para la primera torre
 	lui s1, 0x10010
 	slli t0, s0, 2 # t0 Es donde se guarda el espacio para cada torre
@@ -32,6 +32,7 @@ hanoi:	nop
 		addi s1,s1,4  # Debemos sumar cuatro al hacer el pop para recorrer el top hasta el siguiente valor
 		addi s3,s3,-4 # Debemos hacer -4 antes del push para poder subir a donde guardaremos el valor
 		sw s0,0(s3)   # PUSH
+		nop	      # Breakpoint para ver la posicion de los discos
 	jalr ra # return
 else:	nop
 	# Guardamos ra, n (las torres no por la técnica usada de restar y sumar memoria al hacer push y pop)
