@@ -1,8 +1,8 @@
 .data
 .text
-	# Inicializar el número de discos
-	# s0 es el número de discos
-	addi s0, zero, 3
+	# Inicializar el numero de discos
+	# s0 es el numero de discos
+	addi s0, zero, 10
 	# Apuntador al inicio de la RAM para la primera torre
 	lui s1, 0x10010
 	slli t0, s0, 2 # t0 Es donde se guarda el espacio para cada torre
@@ -11,15 +11,16 @@
 	add s3, t0, s2
 	# s1, s2, s3 es donde se guardan las torres
 	addi t1, t1, 1
-	addi t5, t0,-4
 	# t1 es mi i
 	for:	blt s0, t1, continuar
 		sw t1,0(s1)
 		addi t1,t1,1
 		addi s1,s1,4
+		addi s2,s2,4
+		addi s3,s3,4
 		jal for
 	continuar:	nop
-	sub s1,s1,t5
+	sub s1,s1,t0
 	#hanoi(src,aux,dst)
 	jal hanoi
 	jal exit
@@ -73,9 +74,4 @@ else:	nop
 	addi sp,sp,8
 	jalr ra
 
-exit: nop	
-	
-	
-
-	
-	
+exit: nop		
