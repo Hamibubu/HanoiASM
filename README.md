@@ -32,3 +32,4 @@ This project implements a recursive algorithm to solve the Towers of Hanoi probl
 
 <br>
 <strong allign="center">Abraham de León Gutiérrez & Luis Santiago Zamora Vargas</strong>
+<br>
