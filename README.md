@@ -25,7 +25,7 @@ This project implements a recursive algorithm to solve the Towers of Hanoi probl
 
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/your-username/towers-of-hanoi-riscv.git
+   git clone https://github.com/hamibubu/towers-of-hanoi-riscv.git
    cd towers-of-hanoi-riscv
 
 <h2 align="center">Credits</h2>
