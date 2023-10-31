@@ -11,18 +11,15 @@
 	add s3, t0, s2
 	# s1, s2, s3 es donde se guardan las torres
 	addi t1, t1, 1
+	addi t5, t0,-4
 	# t1 es mi i
 	for:	blt s0, t1, continuar
 		sw t1,0(s1)
 		addi t1,t1,1
 		addi s1,s1,4
-		addi s2,s2,4
-		addi s3,s3,4
 		jal for
 	continuar:	nop
-	sub s1,s1,t0
-	addi s2,s2,-4
-	addi s3,s3,-4
+	sub s1,s1,t5
 	#hanoi(src,aux,dst)
 	jal hanoi
 	jal exit
@@ -32,8 +29,8 @@ hanoi:	nop
 	bne s0, t1, else # if (n==1)
 		sw zero,0(s1) # POP
 		addi s1,s1,4
-		sw s0,0(s3)   # PUSH
 		addi s3,s3,-4
+		sw s0,0(s3)   # PUSH
 	jalr ra # return
 else:	nop
 	# Guardamos ra, n y las torres
@@ -56,8 +53,8 @@ else:	nop
 	addi sp,sp,8
 	sw zero,0(s1) # POP
 	addi s1,s1,4
-	sw s0,0(s3)   # PUSH
 	addi s3,s3,-4
+	sw s0,0(s3)   # PUSH
 	# Guardamos ra, n y las torres
 	addi sp, sp , -8
 	sw ra, 0(sp)
