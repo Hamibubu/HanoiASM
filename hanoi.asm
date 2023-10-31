@@ -12,49 +12,51 @@
 	# s1, s2, s3 es donde se guardan las torres
 	addi t1, t1, 1
 	# t1 es mi i
-	for:	blt s0, t1, continuar
-		sw t1,0(s1)
-		addi t1,t1,1
-		addi s1,s1,4
-		addi s2,s2,4
-		addi s3,s3,4
-		jal for
+	for:	blt s0, t1, continuar # Aquí en el for vamos a meter los valores a la primera torre y además 
+		sw t1,0(s1)		# inicializar apuntadores en memoria de forma que que quede apuntando así:
+		addi t1,t1,1		#  Pointer de primera torre hasta el tope, "Para eso se hace sub s1,s1,t0" 
+		addi s1,s1,4		#  |
+		addi s2,s2,4		# |1 |2 |3|                        |0x0|0x0|0x0| 
+		addi s3,s3,4		#				               |		
+		jal for			# En las demás torres                     Pointer de la segunda apuntando hasta al "fondo"
 	continuar:	nop
 	sub s1,s1,t0
-	#hanoi(src,aux,dst)
+	# hanoi(src,aux,dst)
 	jal hanoi
-	jal exit
+	jal exit # Finalización
 
 hanoi:	nop
 	addi t1,zero,1
 	bne s0, t1, else # if (n==1)
 		sw zero,0(s1) # POP
-		addi s1,s1,4
-		addi s3,s3,-4
+		addi s1,s1,4  # Debemos sumar cuatro al hacer el pop para recorrer el top hasta el siguiente valor
+		addi s3,s3,-4 # Debemos hacer -4 antes del push para poder subir a donde guardaremos el valor
 		sw s0,0(s3)   # PUSH
 	jalr ra # return
 else:	nop
-	# Guardamos ra, n y las torres
+	# Guardamos ra, n (las torres no por la técnica usada de restar y sumar memoria al hacer push y pop)
 	addi sp, sp , -8
 	sw ra, 0(sp)
 	sw s0, 4(sp)
 	# Efectuamos el n-1
 	addi s0,s0,-1
 	# hanoi(src,dst,aux)
+	# Hacemos el swap de aux -> dst y dst -> aux
 	add s5,zero,s2
 	add s2,zero,s3
 	add s3,zero,s5
 	jal hanoi
+	# Debido a la técnica usada debemos resetar el valor de las torres
 	add s6,zero,s2
 	add s2,zero,s3
 	add s3,zero,s6
-	# Cargamos para la segunda recursividad
+	# Cargamos los valores del return address y n
 	lw ra, 0(sp)
 	lw s0, 4(sp)
 	addi sp,sp,8
 	sw zero,0(s1) # POP
-	addi s1,s1,4
-	addi s3,s3,-4
+	addi s1,s1,4 # Debemos sumar cuatro al hacer el pop para recorrer el top hasta el siguiente valor
+	addi s3,s3,-4 # Debemos hacer -4 antes del push para poder subir a donde guardaremos el valor
 	sw s0,0(s3)   # PUSH
 	# Guardamos ra, n y las torres
 	addi sp, sp , -8
@@ -62,16 +64,19 @@ else:	nop
 	sw s0, 4(sp)
 	# Efectuamos el n-1
 	addi s0,s0,-1
+	# Hacemos el swap de aux -> src src -> aux
 	add s7,zero,s2
 	add s2,zero,s1
 	add s1,zero,s7
 	jal hanoi
+	# Debido a la técnica usada debemos resetar el valor de las torres
 	add s8,zero,s2
 	add s2,zero,s1
 	add s1,zero,s8
+	# Cargamos los valores del return address y n
 	lw ra, 0(sp)
 	lw s0, 4(sp)
 	addi sp,sp,8
 	jalr ra
 
-exit: nop		
+exit: nop # FIN
