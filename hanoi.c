@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define DISCOS 3
+#define DISCOS 10
 
 struct nodo {
 	int dato;
