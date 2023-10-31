@@ -1,5 +1,7 @@
 # Towers of Hanoi in RISC-V Assembly
 
+![images/hanoi.png](https://cdn.kastatic.org/ka-perseus-images/5b5fb2670c9a185b2666637461e40c805fcc9ea5.png)
+
 This project implements the classic Towers of Hanoi problem using assembly language for the RISC-V architecture.
 
 ## Description
