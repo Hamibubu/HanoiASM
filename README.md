@@ -1,4 +1,4 @@
-# Towers of Hanoi in RISC-V Assembly
+<h1 align="center">Towers of Hanoi in RISC-V Assembly</h1>
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Iterative_algorithm_solving_a_6_disks_Tower_of_Hanoi.gif/220px-Iterative_algorithm_solving_a_6_disks_Tower_of_Hanoi.gif" alt="Towers of Hanoi"/>
@@ -6,7 +6,7 @@
 
 This project implements the classic Towers of Hanoi problem using assembly language for the RISC-V architecture.
 
-## Description
+<h2 align="center">Description</h2>
 
 The Towers of Hanoi problem involves moving a series of disks of different sizes from a source tower to a destination tower, using an auxiliary tower, while following these rules:
 
@@ -16,12 +16,12 @@ The Towers of Hanoi problem involves moving a series of disks of different sizes
 
 This project implements a recursive algorithm to solve the Towers of Hanoi problem in RISC-V assembly.
 
-## Requirements
+<h2 align="center">Requirements</h2>
 
 - Emulator or hardware compatible with RISC-V.
 - Basic knowledge of assembly language.
 
-## Installation and Usage
+<h2 align="center">Installation and Usage</h2>
 
 1. **Clone the Repository:**
    ```sh
