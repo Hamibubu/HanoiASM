@@ -19,7 +19,7 @@
 		addi s2,s2,4		# |1 |2 |3|                        |0x0|0x0|0x0| 
 		addi s3,s3,4		#				               |		
 		jal for			# En las demás torres                     Pointer de la segunda apuntando hasta al "fondo"
-	continuar:	nop
+	continuar:
 	sub s1,s1,t0
 	# hanoi(src,aux,dst)
 	jal hanoi
